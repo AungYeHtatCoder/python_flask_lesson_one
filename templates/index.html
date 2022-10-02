@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block head %}
+<title>Task Master</title>
+{% endblock %} {% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          <h1>Task Master</h1>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Task</th>
+              <th>Added</th>
+              <th>Action</th>
+            </tr>
+            {% for task in tasks %}
+            <tr>
+              <td>{{ task.content }}</td>
+              <td>{{ task.date_created.date() }}</td>
+              <td>
+                <a href="" class="btn btn-danger">Delete</a>
+                <a href="" class="btn btn-primary">Update</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+
+      <div class="card mt-5">
+        <div class="card-header">
+          <h1>Add Task</h1>
+        </div>
+        <div class="card-body">
+          <form action="/" method="POST">
+            <div class="form-group">
+              <label for="task">Task</label>
+              <input
+                type="text"
+                name="content"
+                id="content"
+                class="form-control"
+              />
+            </div>
+
+            <div class="mb-3 mt-3">
+              <input type="submit" value="Add Task" class="btn btn-primary" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+// virtual env install
+pip3 install virtualenv
+
+// virtualenv
+virtualenv env
+
+
+// virtualenv activate
+source env/bin/activate
+
+env\Scripts\activate
+
+pip3 install flask flask-sqlalchemy
+
+
+from app import db
+
+
+db.create_all()
+
